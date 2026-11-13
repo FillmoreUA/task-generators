@@ -1,0 +1,59 @@
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+  html,
+  body {
+    background: #fff !important;
+  }
+
+  .no-print,
+  .topbar,
+  .form-panel,
+  .back,
+  .generator-head,
+  .preview-hint,
+  .actions,
+  .print-hint {
+    display: none !important;
+  }
+
+  .view,
+  .generator,
+  .generator-layout,
+  .preview-panel,
+  .sheet-wrap {
+    display: block !important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    position: static !important;
+  }
+
+  .sheet {
+    width: 210mm;
+    height: 296mm;
+    min-height: 0;
+    margin: 0 !important;
+    padding: 14mm 16mm;
+    box-shadow: none !important;
+    border: 0 !important;
+    zoom: 1 !important;
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .sheet:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

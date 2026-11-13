@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: task-generators
+    runtime: static
+    staticPublishPath: ./site
+    headers:
+      - path: /fonts/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
