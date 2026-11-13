@@ -18,3 +18,4 @@
 - 404-сторінка зроблена самодостатньою (inline CSS, без зовнішніх файлів), щоб коректно відкриватися за будь-яким шляхом на Render; на `file://` посилання «На головну» веде на `index.html`.
 - Мобільний перегляд листа A4 масштабується через CSS `zoom` (0.72 / 0.55 / 0.42 на 900/640/460 px), у друці `zoom` скидається до 1.
 - `render.yaml` у корені: static site, `staticPublishPath: ./site`, кеш `fonts/*` на рік.
+- Деплой: https://task-generators.onrender.com (Render Static Site, авто-деплой з гілки `main`).
