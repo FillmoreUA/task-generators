@@ -280,7 +280,8 @@
         body: rendered ? rendered.body : null,
         answers: options.answers,
         answersBody: rendered ? rendered.answers : null,
-        footer: rendered ? rendered.footer : ""
+        footer: rendered ? rendered.footer : "",
+        fill: rendered ? rendered.fill : false
       });
 
       stub.hidden = !!(impl && typeof impl.render === "function");

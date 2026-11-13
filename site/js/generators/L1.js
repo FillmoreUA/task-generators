@@ -15,11 +15,8 @@
     return sample;
   }
 
-  function makeWriteZone(count, slant, watermark) {
+  function makeWriteZone(slant, watermark) {
     const zone = el("div", "write-zone" + (slant ? " slant" : ""));
-    for (let i = 0; i < count; i++) {
-      zone.appendChild(el("div", "write-line"));
-    }
     if (watermark) {
       const mark = el("span", "watermark", t("copy.watermark"));
       mark.setAttribute("aria-hidden", "true");
@@ -89,7 +86,7 @@
         const body = el("div", "copy-body");
         body.appendChild(makeSample(chunk, fontPt));
         body.appendChild(
-          makeWriteZone(chunk.length, opts.lineStyle === "slant", opts.watermark)
+          makeWriteZone(opts.lineStyle === "slant", opts.watermark)
         );
         if (opts.extraTask && start + PER_PAGE >= lines.length) {
           body.appendChild(el("div", "copy-extra", t("copy.extra") + opts.extraTask));
@@ -97,7 +94,7 @@
         pages.push(body);
       }
 
-      return { pages, answers: null };
+      return { pages, answers: null, fill: true };
     }
   };
 })();

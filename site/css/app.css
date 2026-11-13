@@ -420,6 +420,12 @@ a {
   padding: 10mm 0;
 }
 
+.sheet-body-fill {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
 .sheet-foot {
   min-height: 8mm;
   padding-top: 4mm;
@@ -621,11 +627,14 @@ a {
 .copy-body {
   display: flex;
   flex-direction: column;
+  flex: 1 1 auto;
   gap: 6mm;
+  min-height: 0;
   font-family: "Times New Roman", "Noto Serif", serif;
 }
 
 .copy-sample {
+  flex: 0 0 auto;
   white-space: pre-wrap;
   line-height: 1.5;
   border: 1px dashed #d3cdbf;
@@ -634,17 +643,27 @@ a {
 }
 
 .write-zone {
+  --write-rule: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4mm' height='11mm' viewBox='0 0 4 11'%3E%3Cpath d='M0,5.5h4' stroke='%23b9b3a4' stroke-width='0.3' stroke-dasharray='1%201'/%3E%3Cpath d='M0,10.85h4' stroke='%236f6a5e' stroke-width='0.3'/%3E%3C/svg%3E");
   position: relative;
   display: flex;
   flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  background-image: var(--write-rule);
+  background-size: 4mm 11mm;
+  background-position: left bottom;
 }
 
 .write-zone.slant {
-  background-image: repeating-linear-gradient(
-    65deg,
-    transparent 0 11.5mm,
-    rgba(160, 155, 140, 0.45) 11.5mm 11.75mm
-  );
+  background-image:
+    var(--write-rule),
+    repeating-linear-gradient(
+      65deg,
+      transparent 0 11.5mm,
+      rgba(160, 155, 140, 0.45) 11.5mm 11.75mm
+    );
+  background-size: 4mm 11mm, auto;
+  background-position: left bottom, 0 0;
 }
 
 .write-line {

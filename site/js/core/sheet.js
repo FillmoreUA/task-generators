@@ -29,6 +29,7 @@
 
     const body = document.createElement("div");
     body.className = "sheet-body";
+    if (opts.fill) body.classList.add("sheet-body-fill");
     if (opts.body) body.appendChild(opts.body);
 
     const foot = document.createElement("div");
@@ -51,7 +52,8 @@
             title: opts.title,
             showName: opts.showName,
             body: body,
-            footer: opts.footer
+            footer: opts.footer,
+            fill: opts.fill
           })
         );
       });
