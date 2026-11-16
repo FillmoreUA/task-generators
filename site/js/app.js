@@ -48,6 +48,13 @@
     hero.append(heading, sub);
 
     const toolbar = el("div", "toolbar");
+    const aiBanner = el("a", "ai-banner");
+    aiBanner.href = "#/ai";
+    aiBanner.append(
+      el("div", "ai-banner-title", t("nav.ai")),
+      el("div", "ai-banner-copy", t("ai.lead"))
+    );
+
     const search = el("div", "search");
     const input = el("input");
     input.type = "text";
@@ -109,7 +116,7 @@
       draw();
     });
 
-    view.append(hero, toolbar, grid, empty);
+    view.append(hero, aiBanner, toolbar, grid, empty);
     draw();
   }
 
@@ -429,7 +436,9 @@
 
   function route() {
     const hash = location.hash.replace(/^#\/?/, "");
-    if (hash === "templates") {
+    if (hash === "ai" && App.aiPage) {
+      App.aiPage.render(view);
+    } else if (hash === "templates") {
       renderTemplates();
     } else {
       const match = hash.match(/^g\/([A-Za-z0-9_-]+)$/);
